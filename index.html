@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Wage Page</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>Wage Calculator</h1>
+    <form method="post">
+        <input type="text" name="name" placeholder="Employee Name" required>
+        <input type="number" name="hourly_rate" step="0.01" placeholder="Hourly Rate" required>
+        <input type="number" name="hours_worked" step="0.1" placeholder="Hours Worked" required>
+        <button type="submit">Add Employee</button>
+    </form>
+
+    <h2>Employee Wages</h2>
+    <ul>
+        {% for emp in employees %}
+            <li>{{ emp.name }} - ${{ emp.calculate_wage() }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
